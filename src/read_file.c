@@ -5,13 +5,14 @@
 ** returns the content of a file
 */
 
+#include "../includes/json.h"
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 
-static char *exit_file(int fd, char *content)
+static json_t *exit_file(int fd, char *content)
 {
     close(fd);
     if (content != NULL)
@@ -19,10 +20,11 @@ static char *exit_file(int fd, char *content)
     return (NULL);
 }
 
-char *read_file(char *filepath)
+json_t *read_file(char *filepath)
 {
     int fd = -1;
     char *content = NULL;
+    json_t *json;
     struct stat sb;
 
     fd = open(filepath, O_RDONLY);
@@ -35,5 +37,7 @@ char *read_file(char *filepath)
         return (exit_file(fd, content));
     content[sb.st_size] = 0;
     close(fd);
-    return (content);
+    json = malloc(sizeof(json_t));
+    json->content = content;
+    return (json);
 }

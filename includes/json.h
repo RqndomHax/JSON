@@ -12,8 +12,11 @@
 
 typedef struct json_s
 {
-    char **argv;
-    list_t *content;
+    char *content;
 }json_t;
+
+json_t *read_file(char *filepath);
+
+void destroy_json(json_t **json);
 
 #endif /* !JSON_H_ */
