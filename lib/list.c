@@ -14,15 +14,15 @@ void list_destroy(list_t **list)
 
     while (current != NULL) {
         next = current->next;
-        if (current->content != NULL)
-            free(current->content);
+        if (current->value != NULL)
+            free(current->value);
         free(current);
         current = next;
     }
     *list = NULL;
 }
 
-list_t *list_add(list_t **list, char *content)
+list_t *list_add(list_t **list, char *value)
 {
     list_t *new;
     list_t *to_last = *list;
@@ -31,7 +31,7 @@ list_t *list_add(list_t **list, char *content)
     if (!new)
         return (0);
     new->next = NULL;
-    new->content = content;
+    new->value = value;
     if (*list == NULL)
         *list = new;
     else {

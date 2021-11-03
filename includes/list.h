@@ -12,14 +12,14 @@
 
 typedef struct list_s
 {
-    char *content;
+    char *value;
     struct list_s *next;
 }list_t;
 
-void list_destroy(list_t **);
+void list_destroy(list_t **list);
 
-list_t *list_add(list_t **, char *);
+list_t *list_add(list_t **list, char *value);
 
-int list_size(list_t *);
+int list_size(list_t *list);
 
 #endif /* !LIST_H_ */
