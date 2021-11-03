@@ -8,11 +8,13 @@
 #ifndef JSON_H_
 #define JSON_H_
 
+#include <stdlib.h>
 #include "list.h"
 
 typedef struct json_s
 {
     char *content;
+    list_t *elements;
 }json_t;
 
 json_t *read_file(char *filepath);

@@ -8,8 +8,6 @@
 #ifndef PAIR_H_
 #define PAIR_H_
 
-#include <stdlib.h>
-
 typedef struct pair_s
 {
     char *key;

@@ -5,6 +5,7 @@
 ** pair
 */
 
+#include <stdlib.h>
 #include "../includes/pair.h"
 
 static int pair_strlen(char *str)

@@ -5,20 +5,21 @@
 ** linked lists
 */
 
-#include <stdlib.h>
 
 #ifndef LIST_H_
 #define LIST_H_
 
+#include "pair.h"
+
 typedef struct list_s
 {
-    char *value;
+    pair_t *value;
     struct list_s *next;
 }list_t;
 
 void list_destroy(list_t **list);
 
-list_t *list_add(list_t **list, char *value);
+list_t *list_add(list_t **list, pair_t *value);
 
 int list_size(list_t *list);
 

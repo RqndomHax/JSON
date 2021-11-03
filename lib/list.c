@@ -6,6 +6,7 @@
 */
 
 #include "../includes/list.h"
+#include <stdlib.h>
 
 void list_destroy(list_t **list)
 {
@@ -22,7 +23,7 @@ void list_destroy(list_t **list)
     *list = NULL;
 }
 
-list_t *list_add(list_t **list, char *value)
+list_t *list_add(list_t **list, pair_t *value)
 {
     list_t *new;
     list_t *to_last = *list;
